@@ -1,6 +1,6 @@
 # test_game.py
 
-from game_model import *
+from jewel_columns import *
 import unittest
 
 

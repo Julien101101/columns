@@ -1,7 +1,13 @@
 # project5.py
+# 
+# commands being R < and >
+# visual cue when fallers land and match
+# create a tick instance (once per second)
+
+
 
 import pygame
-import game_model
+import jewel_columns
 
 
 jewel_colors = [
@@ -13,27 +19,36 @@ jewel_colors = [
     (255, 255, 0), 
     (196, 192, 226)]
 
+
 ROWS = 16
 COLUMNS = 6
 
 
-# commands being R < and >
-# visual cue when fallers land and match
-# create a tick instance (once per second)
+
 
 
 def main():
     pygame.init()
 
-    background_color = (120, 0, 20)
+    surface = pygame.display.set_mode(500, 1200)
 
-    surface = pygame.display.set_model
-
-    screen = pygame.display.set_model(())
+    running = True
 
     pygame.display.set_caption("Python Columns")
     clock = pygame.time.Clock()
-    columns_game = game_model.ColumnsGrid(COLUMNS, ROWS)
+
+
+    while running:
+        clock.tick(1)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+        
+        surface.fill(pygame.Color(232, 111, 30))
+
+        pygame.display.flip()
+
+    columns_game = jewel_columns.ColumnsGrid(COLUMNS, ROWS)
 
     while True:
             # create an empty board
@@ -42,7 +57,7 @@ def main():
 
 
 
-        if game_model.is_game_over():
+        if jewel_columns.is_game_over():
             break
 
         parse_this = input()
@@ -64,7 +79,7 @@ def main():
         else:
             pass
 
-        game_model.handle_faller()
+        jewel_columns.handle_faller()
         
 
     print("GAME OVER")
