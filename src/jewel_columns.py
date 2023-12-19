@@ -61,6 +61,7 @@ class CreateFaller:
             selected_color = color_list[value][1]
             faller.append(selected_color)
         return faller
+    # maybe instead of appending the color append the gem type to get the basic root function working
 
     def rotate_faller(self):
         # Switch the positions of elements
